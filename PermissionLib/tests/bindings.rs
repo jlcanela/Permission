@@ -8,14 +8,14 @@ fn bindings_csharp() -> Result<(), Error> {
 
     Generator::new(
         Config {
-            class: "InteropClass".to_string(),
+            class: "Permission".to_string(),
             dll_name: "permission_lib".to_string(),
-            namespace_mappings: NamespaceMappings::new("My.Company"),
+            namespace_mappings: NamespaceMappings::new("PermissionLib"),
             ..Config::default()
         },
         permission_lib::my_inventory(),
     )
-    .write_file("bindings/csharp/Interop.cs")?;
+    .write_file("bindings/csharp/PermissionLib.cs")?;
 
     Ok(())
 }

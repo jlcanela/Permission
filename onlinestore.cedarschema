@@ -1,0 +1,13 @@
+// Online Store example
+namespace OnlineStore {
+  entity User, Cart, Order,Product;
+
+  action searchProduct appliesTo {
+    principal: [User],
+    resource: [Product],
+    context: {
+      "sessionId"?: String,
+    }
+  };
+}
+

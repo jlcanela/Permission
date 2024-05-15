@@ -20,18 +20,17 @@ namespace PermissionLib
 
 
         /// Function using the type.
-        [DllImport(NativeLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "my_function")]
-        public static extern Vec2 my_function(Vec2 input);
+        [DllImport(NativeLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "init")]
+        public static extern bool init(ref string policies, ref string schema);
 
-    }
+        /// Function using the type.
+        [DllImport(NativeLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "clean")]
+        public static extern bool clean();
 
-    /// A simple type in our FFI layer.
-    [Serializable]
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct Vec2
-    {
-        public float x;
-        public float y;
+        /// Function using the type.
+        [DllImport(NativeLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "check")]
+        public static extern bool check(ref string policies, ref string schema, ref string principal, ref string action, ref string resource, ref string context, ref string entities);
+
     }
 
 
